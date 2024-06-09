@@ -1,10 +1,10 @@
 import { Grid, Heading } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../actions/productActions";
-import ProductCard from "../components/ProductCard";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import ProductCard from "../components/ProductCard";
 const HomeScreen = () => {
   const dispatch = useDispatch();
 
@@ -18,7 +18,7 @@ const HomeScreen = () => {
   return (
     <>
       <Heading as="h2" mb="8" fontSize="1.7rem" mt="5">
-        Our Latest Products
+        RST Store Products
       </Heading>
 
       {loading ? (

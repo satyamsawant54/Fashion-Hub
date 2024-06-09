@@ -8,10 +8,7 @@ import {
   USER_DELETE_FAIL,
   USER_DELETE_REQUEST,
   USER_DELETE_SUCCESS,
-  USER_DETAILS_FAIL,
-  USER_DETAILS_REQUEST,
   USER_DETAILS_RESET,
-  USER_DETAILS_SUCCESS,
   USER_LIST_DETAILS_FAIL,
   USER_LIST_DETAILS_REQUEST,
   USER_LIST_DETAILS_SUCCESS,
@@ -46,7 +43,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `/api/users/login`,
+      `https://fashion-hub-baoe.onrender.com/api/users/login`,
       { email, password },
       config
     );
@@ -86,7 +83,7 @@ export const register = (name, email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "/api/users",
+      "https://fashion-hub-baoe.onrender.com/api/users",
       { name, email, password },
       config
     );
@@ -119,7 +116,11 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(`/api/users/profile`, user, config);
+    const { data } = await axios.put(
+      `https://fashion-hub-baoe.onrender.com/api/users/profile`,
+      user,
+      config
+    );
 
     dispatch({ type: USER_UPDATE_PROFILE_SUCCESS, payload: data });
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
@@ -150,7 +151,10 @@ export const listUsers = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/api/users`, config);
+    const { data } = await axios.get(
+      `https://fashion-hub-baoe.onrender.com/api/users`,
+      config
+    );
 
     dispatch({ type: USER_LIST_SUCCESS, payload: data });
   } catch (err) {
@@ -178,7 +182,10 @@ export const deleteUser = (id) => async (dispatch, getState) => {
       },
     };
 
-    await axios.delete(`/api/users/${id}`, config);
+    await axios.delete(
+      `https://fashion-hub-baoe.onrender.com/api/users/${id}`,
+      config
+    );
 
     dispatch({ type: USER_DELETE_SUCCESS });
   } catch (err) {
@@ -207,7 +214,11 @@ export const updateUser = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(`/api/users/${user._id}`, user, config);
+    const { data } = await axios.put(
+      `https://fashion-hub-baoe.onrender.com/api/users/${user._id}`,
+      user,
+      config
+    );
 
     dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
   } catch (err) {
@@ -225,7 +236,9 @@ export const getUserDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: USER_LIST_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`/api/user/${id}`);
+    const { data } = await axios.get(
+      `https://fashion-hub-baoe.onrender.com/api/user/${id}`
+    );
 
     dispatch({ type: USER_LIST_DETAILS_SUCCESS, payload: data });
   } catch (err) {
