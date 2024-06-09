@@ -1,4 +1,3 @@
-import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import path from "path";
@@ -16,15 +15,15 @@ connectDB();
 const app = express();
 app.use(express.json()); // Request body parsing
 
-const corsOptions = {
-  origin: "https://localhost:3000", // Replace with your Netlify URL
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true, // Allow cookies if needed
-  optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+//   origin: "https://localhost:3000", // Replace with your Netlify URL
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   credentials: true, // Allow cookies if needed
+//   optionsSuccessStatus: 204,
+// };
 
-// Enable CORS
-app.use(cors()); // Use the cors middleware
+// // Enable CORS
+// app.use(cors()); // Use the cors middleware
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
