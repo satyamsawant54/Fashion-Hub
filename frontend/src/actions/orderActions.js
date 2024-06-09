@@ -35,11 +35,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(
-      "https://fashion-hub-ecommerce.onrender.com/api/orders",
-      order,
-      config
-    );
+    const { data } = await axios.post("/api/orders", order, config);
     dispatch({ type: ORDER_CREATE_SUCCESS, payload: data });
   } catch (err) {
     dispatch({
@@ -66,10 +62,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      `https://fashion-hub-ecommerce.onrender.com/api/orders/${id}`,
-      config
-    );
+    const { data } = await axios.get(`/api/orders/${id}`, config);
 
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data });
   } catch (err) {
@@ -100,7 +93,7 @@ export const payOrder =
       };
 
       const { data } = await axios.put(
-        `https://fashion-hub-ecommerce.onrender.com/api/orders/${orderId}/pay`,
+        `/api/orders/${orderId}/pay`,
         paymentResult,
         config
       );
@@ -130,10 +123,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      `https://fashion-hub-ecommerce.onrender.com/api/orders/myorders`,
-      config
-    );
+    const { data } = await axios.get(`/api/orders/myorders`, config);
 
     dispatch({ type: ORDER_MY_LIST_SUCCESS, payload: data });
   } catch (err) {
@@ -161,10 +151,7 @@ export const listOrders = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      `https://fashion-hub-ecommerce.onrender.com/api/orders`,
-      config
-    );
+    const { data } = await axios.get(`/api/orders`, config);
 
     dispatch({ type: ORDER_LIST_SUCCESS, payload: data });
   } catch (err) {
@@ -194,7 +181,7 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `https://fashion-hub-ecommerce.onrender.com/api/orders/${order._id}/deliver`,
+      `/api/orders/${order._id}/deliver`,
       order,
       config
     );
