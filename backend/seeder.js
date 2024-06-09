@@ -1,6 +1,4 @@
-import colors from "colors";
 import dotenv from "dotenv";
-
 import connectDB from "./config/db.js";
 import products from "./data/products.js";
 import users from "./data/users.js";
@@ -27,7 +25,7 @@ const importData = async () => {
 
     await Product.insertMany(sampleProducts);
 
-    console.log("Data imported".green.inverse);
+    console.log("Data imported");
     process.exit();
   } catch (err) {
     console.error(`${err}`.red.inverse);
@@ -41,7 +39,7 @@ const destroyData = async () => {
     await Product.deleteMany();
     await User.deleteMany();
 
-    console.log("Data destroyed".red.inverse);
+    console.log("Data destroyed");
     process.exit();
   } catch (err) {
     console.error(`${err}`.red.inverse);
