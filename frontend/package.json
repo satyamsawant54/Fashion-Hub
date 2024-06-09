@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": " https://localhost:5000",
+  "proxy": " https://fashion-hub-ecommerce.onrender.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
